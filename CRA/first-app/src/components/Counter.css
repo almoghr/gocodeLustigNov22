@@ -1,0 +1,13 @@
+.counter-wrapper{
+    border: 2px solid yellow;
+    width: 500px;
+    height: 500px;
+    margin: 40px;
+}
+
+.buttonGroup{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+}

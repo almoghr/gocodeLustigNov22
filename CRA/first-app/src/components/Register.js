@@ -1,30 +1,36 @@
+import {useState} from 'react'
 import UserBox from './UserBox'
-import './Register.css'
+
+const userListInitialValues = [
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+  { username: "a ", email: "a@a.com" },
+];
 
 const Register = () => {
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [userList, setUserList] = useState(userListInitialValues)
+
     const user = {
         username: "almog",
-        password: "blabla",
         email: "almoghr36@gmail.com",
       };
     
-      const userList = [
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-        { username: "a ", email: "a@a.com" },
-      ];
-      const isEditMode = false;
-    
+    const addUser = () => {
+      const newList = [...userList]
+      newList.unshift(user)
+      setUserList(newList)
+    }
       return (
         <div style={{ display: "flex", flexDirection: "column" }}>
           <input
@@ -42,7 +48,8 @@ const Register = () => {
             placeholder="enter your email"
           />
     
-          <button>{isEditMode ? "update" : "submit"}</button>
+          <button onClick={() => {setIsEditMode(!isEditMode); console.log(isEditMode)}}>{isEditMode ? "update" : "submit"}</button>
+          <button onClick={addUser} >add another user</button>
           {userList.map(user => <UserBox username={user.username} email={user.email}/>)}
         </div>
       );
