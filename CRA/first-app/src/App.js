@@ -1,20 +1,14 @@
-import { useState } from 'react';
-import './App.css';
-import Counter from './components/Counter';
-import Register from './components/Register';
+import Nav from './components/Nav'
+import Products from './components/Products'
+import './App.css'
 
-
-function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
-  return (
-    <div className="App" style={isDarkMode ? {backgroundColor: '#333'} : {}}>
-       <Register />
-      {/* <button onClick={() => setIsDarkMode(!isDarkMode)}>
-        set dark mode {isDarkMode ? "off" : "on"}
-      </button>  */}
-      <Counter />
-    </div>
-  );
+const App = () => {
+    return(
+        <div>
+            <Nav/>
+            <Products/>
+        </div>
+    )
 }
 
-export default App;
+export default App
