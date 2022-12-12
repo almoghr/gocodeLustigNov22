@@ -1,6 +1,8 @@
-
+import { useContext } from "react"
+import MyContext from "../MyContext"
 const Product =({imgUrl, title, price})=> {
-
+    const {example} = useContext(MyContext)
+    console.log(example)
     return(
       <div className="product-card">
         <div className="product-image">

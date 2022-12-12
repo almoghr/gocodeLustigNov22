@@ -1,23 +1,10 @@
 import Product from "./Product";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
+import MyContext from "../MyContext";
 
 
 const Products = () => {
-  
-  const [productsData, setProductsData] = useState([])
-  
-  const getAllProducts = async () => {
-    const response = await fetch('https://fakestoreapi.com/products')
-    const data = await response.json();
-    setProductsData(data)
-  }
-
-useEffect(()=>{
-  getAllProducts()
-},[])
-
-// useEffect(()=>{console.log(productsData)},[productsData])
-
+  const {productsData, setProductsData} = useContext(MyContext)
   return (
     <section className="products">
       {productsData && productsData.map((product,i) => { 
