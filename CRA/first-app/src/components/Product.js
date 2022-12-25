@@ -14,9 +14,15 @@ const Product =({imgUrl, title, price})=> {
         <div className="product-info">
           <h5>{title}</h5>
           <h6>{price}</h6>
+          <div>
+            <button>+</button>
+            {/* <p>amount: {amount}</p> */}
+            <button>-</button>
+          </div>
         </div>
       </div>
     )
   }
 
   export default Product
+
