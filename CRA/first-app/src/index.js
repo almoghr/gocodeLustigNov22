@@ -7,6 +7,7 @@ import About from './components/About';
 import Cart from './components/Cart';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import NotFoundPage from './components/NotFoundPage';
+import ProductPage from './components/ProductPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element:<App />,
+  },
+  {
+    path:"products/:productId",
+    element: <ProductPage />
   },
   {
     path: "about",
@@ -31,6 +36,7 @@ const router = createBrowserRouter([
 ]);
 root.render(
   <React.StrictMode>
+    
     <RouterProvider router={router} />
   </React.StrictMode>
 );

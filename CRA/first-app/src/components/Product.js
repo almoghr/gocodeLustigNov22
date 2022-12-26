@@ -1,12 +1,11 @@
-import { useContext } from "react"
-import MyContext from "../MyContext"
-const Product =({imgUrl, title, price})=> {
-    const {example} = useContext(MyContext)
-    console.log(example)
+import { useNavigate } from "react-router-dom";
+const Product =({imgUrl, title, price, id})=> {
+  const navigate = useNavigate()
     return(
       <div className="product-card">
         <div className="product-image">
           <img
+            onClick={() => {navigate(`products/${id}`)}}
             alt="something amazing"
             src={imgUrl}
           />
